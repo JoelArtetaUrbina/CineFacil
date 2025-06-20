@@ -1,0 +1,8 @@
+.header {
+  padding: 1rem;
+}
+
+.header__titulo {
+  font-size: 1.5rem;
+  color: #0905f7;
+}
