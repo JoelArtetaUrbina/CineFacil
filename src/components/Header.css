@@ -1,8 +1,9 @@
 .header {
-  padding: 1rem;
+  padding: 1.5rem;
+  background-color: lab(22.09% 16.06 -43.89);
 }
 
 .header__titulo {
   font-size: 1.5rem;
-  color: #0905f7;
+  color: #fdfdfd;
 }

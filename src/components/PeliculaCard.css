@@ -1,0 +1,36 @@
+/* Estilo base de la tarjeta de película */
+.pelicula-card {
+    border: none;                                   /* Sombra suave para darle profundidad */
+    transition: transform 0.2s ease-in-out;         /* Animación para efecto hover */
+    box-shadow: 0 2px 8px rgba(0, 24, 243, 0.1);  /* Eliminamos borde por defecto de Bootstrap */
+}
+
+/*efecto cuando pasamos el mouse por encima */
+.pelicula-card:hover {
+    transform: scale(1.03);                   /* hace que la tarjeta crezca un poco */
+}
+
+/* imagen de la pelicula */
+.pelicula-card img {
+    object-fit: cover;                   /* Ajusta la imagen para cubrir el área */                            
+    height: 450px;                        /* Altura fija para todas las tarjetas */
+}
+
+/* Contenedor del contenido textual (título, año...) */
+.pelicula-card__contenido {
+  padding: 1rem;              /* Espaciado interno */
+  background-color: #f8f9fa;  /* Color claro similar al fondo de Bootstrap */
+}
+
+/* Título de la película */
+.pelicula-card__titulo {
+  font-size: 1.1rem;   /* Tamaño de fuente moderado */
+  font-weight: bold;   /* Título en negrita */
+  color: #6e7a86;      /* Color de texto claro */
+}
+
+/* Año de la película */
+.pelicula-card__year {
+  font-size: 0.9rem;   /* Letra un poco más pequeña para diferenciarlo */
+  color: #6c757d;      /* Color gris claro (tono Bootstrap) */
+}
