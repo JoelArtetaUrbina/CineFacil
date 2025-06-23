@@ -1,9 +1,71 @@
-.header {
-  padding: 1.5rem;
-  background-color: lab(22.09% 16.06 -43.89);
+/* 🎬 Animación suave al aparecer */
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-.header__titulo {
+.header {
+  background: linear-gradient(90deg, #1f3ba3, #e50914, #1f3ba3);
+  background-size: 300% 300%;
+  animation: moverFondo 12s ease-in-out infinite;
+  padding: 0.75rem 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+  position: relative;
+  z-index: 10;
+}
+
+
+.header__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header__brand {
   font-size: 1.5rem;
-  color: #fdfdfd;
+  font-weight: bold;
+  color: white;
+  text-decoration: none;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.header__brand:hover {
+  color: #ffffff;
+  text-shadow: 0 0 5px #d8d8d8e1;
+}
+
+.header__nav {
+  display: flex;
+  gap: 1.2rem;
+}
+
+.header__link {
+  color: #ccc;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.header__link:hover {
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
+.header__link--activo {
+  color: #ffffff;
+}
+
+.header__badge {
+  background-color: rgb(255, 255, 255);
+  border-radius: 999px;
+  font-size: 0.7rem;
+  padding: 0.25rem 0.5rem;
+  margin-left: 0.4rem;
+  vertical-align: middle;
 }

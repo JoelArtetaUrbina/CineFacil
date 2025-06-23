@@ -1,9 +1,8 @@
-import React from "react";  
 import usePeliculas from "../hooks/usePeliculas";
 import BuscadorPeliculas from "../components/BuscadorPeliculas";
 import PeliculaCard from "../components/PeliculaCard";
 
-function Peliculas() {
+function Peliculas({ onToggleFavorito, favoritos }) {
     const { peliculas, cargando, error, buscarPeliculas } = usePeliculas([]);
 
     return (
@@ -16,7 +15,12 @@ function Peliculas() {
             <div className="row mt-4">
                 {peliculas.map((peli) => (
                     <div className="col-md-4 mb-4" key={peli.imdbID}>
-                        <PeliculaCard pelicula={peli} />
+                        <PeliculaCard
+                            pelicula={peli}
+                            onToggleFavorito={onToggleFavorito}
+                            esFavorito={favoritos.some((fav) => fav.imdbID === peli.imdbID)}
+                        />
+
                     </div>
                 ))}
             </div>

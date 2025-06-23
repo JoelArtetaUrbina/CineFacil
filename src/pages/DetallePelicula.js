@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import './DetallePelicula.css';
 
 function DetallePelicula() {
     // Obtenemos el ID de la película desde la URL

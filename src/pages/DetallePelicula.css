@@ -1,0 +1,50 @@
+.detalle-pelicula {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.02);
+  backdrop-filter: blur(4px);
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.3);
+  max-width: 800px;
+  margin: 2rem auto;
+  animation: fadeIn 0.8s ease forwards;
+  opacity: 0;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.detalle-pelicula h2 {
+  font-size: 2.5rem;
+  color: #ffffff;
+  margin-bottom: 1rem;
+}
+
+.detalle-pelicula img {
+  width: 260px;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+  transition: transform 0.3s ease;
+}
+
+.detalle-pelicula img:hover {
+  transform: scale(1.05);
+}
+
+.detalle-pelicula p {
+  font-size: 1.05rem;
+  color: #ddd;
+  margin: 0.4rem 0;
+}
+
+.detalle-pelicula p strong {
+  color: #ffffff;
+}
