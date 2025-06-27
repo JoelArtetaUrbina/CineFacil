@@ -4,9 +4,9 @@
   align-items: center;
   justify-content: center;
   padding: 10vh 2rem;
+  color: #ffffff;
   text-align: center;
 }
-
 .home__seccion {
   margin-bottom: 3rem;
 }
@@ -15,13 +15,13 @@
 .home__titulo {
   font-size: 4rem;
   font-weight: 800;
-  text-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+  text-shadow: 0 0 15px rgba(12, 8, 255, 0.774);
 }
 
 
 .home__subtitulo {
-  font-size: 1.25rem;
-  color: #ccc;
+  font-size: 2rem;
+  color: #ffffff;
   margin-top: 0.75rem;
 }
 

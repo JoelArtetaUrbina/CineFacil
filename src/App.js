@@ -27,7 +27,7 @@ function App() {
           <Header favoritos={favoritos} />
           <main className="container mt-4">
             <Routes>
-              <Route path="/" element={<Home />} />
+              <Route path="/" element={<Home favoritos={favoritos} toggleFavorito={toggleFavorito}/>} />
               <Route
                 path="/peliculas"
                 element={

@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import "./CarruselPeliculas.css";
 import { useNavigate } from "react-router-dom";
 
-function CarruselPeliculas({ titulo, apiURL }) {
+function CarruselPeliculas({ titulo, apiURL, favoritos, onToggleFavorito }) {
   const [peliculas, setPeliculas] = useState([]);
   const contenedorRef = useRef(null);
   const navigate = useNavigate();
@@ -46,12 +46,16 @@ function CarruselPeliculas({ titulo, apiURL }) {
     return () => clearInterval(interval);
   }, []);
 
+  const peliculasConPoster = peliculas.filter(
+    (peli) => peli.Poster && peli.Poster !== 'N/A'
+  );
+
   return (
     <div className="carrusel">
       <h3 className="carrusel__titulo">{titulo}</h3>
       <div className="carrusel__contenedor" ref={contenedorRef}>
-        {peliculas.length > 0 ? (
-          peliculas.map((peli) => (
+        {peliculasConPoster.length > 0 ? (
+          peliculasConPoster.map((peli) => (
             <div
               className="carrusel__item"
               key={peli.imdbID}
@@ -63,6 +67,16 @@ function CarruselPeliculas({ titulo, apiURL }) {
                 alt={peli.Title}
                 className="carrusel__poster"
               />
+              <button
+                className="carrusel__favorito"
+                onClick={(e) => {
+                  e.stopPropagation(); // evita que se redirija al hacer clic
+                  onToggleFavorito(peli);
+                }}
+              >
+                {favoritos.some(fav => fav.imdbID === peli.imdbID) ? '★' : '☆'}
+              </button>
+
             </div>
           ))
         ) : (

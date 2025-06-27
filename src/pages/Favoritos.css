@@ -1,0 +1,33 @@
+/* 🎥 Contenedor general de la sección Favoritos */
+.favoritos {
+  max-width: 1000px;
+  margin: 3rem auto;
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.03);  /* Fondo translúcido */
+  border-radius: 12px;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.4);
+}
+
+/* 🎬 Título principal */
+.favoritos h2 {
+  font-size: 2.3rem;
+  margin-bottom: 2rem;
+  color: #f8d500;
+  text-align: center;
+}
+
+/* 🧩 Contenedor de tarjetas (usa flexbox responsivo) */
+.favoritos__lista {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+}
+
+/* 📝 Mensaje cuando no hay favoritos */
+.favoritos__mensaje {
+  color: #ccc;
+  font-size: 1.1rem;
+  text-align: center;
+  margin-top: 1rem;
+}

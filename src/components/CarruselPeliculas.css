@@ -4,10 +4,27 @@
 }
 
 .carrusel__titulo {
-  font-size: 1.5rem;
+  font-size: 2rem;
   margin-bottom: 1rem;
-  padding-left: 1rem;
+  color: #a5fdf9;
+  text-align: center;
+  padding-left: 0.5rem;
+}
+
+.carrusel__favorito {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: transparent;
   color: #f8d500;
+  font-size: 1.4rem;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.carrusel__favorito:hover {
+  transform: scale(1.2);
 }
 
 .carrusel__contenedor {
@@ -26,6 +43,7 @@
 }
 
 .carrusel__poster {
+  height: 225px;
   width: 100%;
   border-radius: 8px;
   object-fit: cover;
