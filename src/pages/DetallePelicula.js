@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import './DetallePelicula.css';
+const apiKey = process.env.REACT_APP_OMDB_KEY;
 
 function DetallePelicula() {
     // Obtenemos el ID de la película desde la URL
   const { id } = useParams();
-
   // Estado para almacenar los datos de la película seleccionada
   const [pelicula, setPelicula] = useState(null);
 
@@ -13,7 +13,7 @@ function DetallePelicula() {
   useEffect(() => {
     const obtenerDetalle = async () => {
       try {
-        const resp = await fetch(`https://www.omdbapi.com/?i=${id}&apikey=314fe0e`);
+        const resp = await fetch(`https://www.omdbapi.com/?i=${id}&apikey=3${apiKey}`);
         const data = await resp.json();
         setPelicula(data);
       } catch (error) {

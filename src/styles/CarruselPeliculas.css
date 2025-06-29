@@ -15,15 +15,24 @@
   position: absolute;
   top: 8px;
   right: 8px;
-  background: transparent;
+  background: rgba(0, 0, 0, 0.6); /* Fondo oscuro translúcido */
   color: #f8d500;
-  font-size: 1.4rem;
-  border: none;
+  font-size: 1.2rem;
+  border: 1px solid #f8d500;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
-  transition: transform 0.2s ease;
+  transition: transform 0.2s ease, background 0.3s ease;
+  z-index: 2;
 }
 
 .carrusel__favorito:hover {
+  background: #f87800;
+  color: #000;
   transform: scale(1.2);
 }
 

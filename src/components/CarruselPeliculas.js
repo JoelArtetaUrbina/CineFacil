@@ -1,6 +1,6 @@
-import { useState, useEffect, useRef } from "react";
-import "./CarruselPeliculas.css";
-import { useNavigate } from "react-router-dom";
+import { useState, useEffect, useRef } from 'react';
+import './CarruselPeliculas.css';
+import { useNavigate } from 'react-router-dom';
 
 function CarruselPeliculas({ titulo, apiURL, favoritos, onToggleFavorito }) {
   const [peliculas, setPeliculas] = useState([]);
@@ -12,7 +12,7 @@ function CarruselPeliculas({ titulo, apiURL, favoritos, onToggleFavorito }) {
       try {
         const res = await fetch(apiURL);
         const data = await res.json();
-        if (data.Response === "True") {
+        if (data.Response === 'True') {
           setPeliculas(data.Search);
         } else {
           setPeliculas([]);
