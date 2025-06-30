@@ -1,5 +1,5 @@
 import PeliculaCard from '../components/PeliculaCard';
-import './Favoritos.css';
+import '../styles/Favoritos.css';
 
 function Favoritos({ favoritos, onToggleFavorito, props}) {
   return (

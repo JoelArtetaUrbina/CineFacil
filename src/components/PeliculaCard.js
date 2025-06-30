@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import './PeliculaCard.css'; // Asegurate de tener los estilos listos
+import '../styles/PeliculaCard.css'; // Asegurate de tener los estilos listos
 
 function PeliculaCard({ pelicula, esFavorito, onToggleFavorito }) {
   return (

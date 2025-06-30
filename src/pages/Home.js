@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import CarruselPeliculas from '../components/CarruselPeliculas';
-import './Home.css';
+import '../styles/Home.css';
 
 function Home({ favoritos, toggleFavorito }) {
   return (
@@ -26,7 +26,7 @@ function Home({ favoritos, toggleFavorito }) {
       <section className="home__seccion">
         <CarruselPeliculas
           titulo="🎥 Tendencias de hoy"
-          apiURL="https://www.omdbapi.com/?s=heroes&apikey=314fe0e"
+          terminoBusqueda="heroes"
           favoritos={favoritos}
           onToggleFavorito={toggleFavorito}
 
@@ -37,7 +37,7 @@ function Home({ favoritos, toggleFavorito }) {
       <section className="home__seccion">
         <CarruselPeliculas
           titulo="📼 Clásicos que debes ver"
-          apiURL="https://www.omdbapi.com/?s=old&apikey=314fe0e"
+          terminoBusqueda="oldies"
           favoritos={favoritos}
           onToggleFavorito={toggleFavorito}
 
@@ -48,7 +48,7 @@ function Home({ favoritos, toggleFavorito }) {
       <section className="home__seccion">
         <CarruselPeliculas
           titulo="🎨 Películas animadas"
-          apiURL="https://www.omdbapi.com/?s=animated&apikey=314fe0e"
+          terminoBusqueda="animated"
           favoritos={favoritos}
           onToggleFavorito={toggleFavorito}
 
@@ -59,7 +59,7 @@ function Home({ favoritos, toggleFavorito }) {
       <section className="home__seccion">
         <CarruselPeliculas
           titulo="🔥 De acción explosiva"
-          apiURL="https://www.omdbapi.com/?s=action&apikey=314fe0e"
+          terminoBusqueda="action"
           favoritos={favoritos}
           onToggleFavorito={toggleFavorito}
 
@@ -70,7 +70,7 @@ function Home({ favoritos, toggleFavorito }) {
       <section className="home__seccion">
         <CarruselPeliculas
           titulo="😂 Para reír sin parar"
-          apiURL="https://www.omdbapi.com/?s=comedy&apikey=314fe0e"
+          terminoBusqueda="comedy"
           favoritos={favoritos}
           onToggleFavorito={toggleFavorito}
 
@@ -81,7 +81,7 @@ function Home({ favoritos, toggleFavorito }) {
       <section className="home__seccion">
         <CarruselPeliculas
           titulo="👻 Terror que te hará saltar"
-          apiURL="https://www.omdbapi.com/?s=horror&apikey=314fe0e"
+          terminoBusqueda="horror"
           favoritos={favoritos}
           onToggleFavorito={toggleFavorito}
 
@@ -92,7 +92,7 @@ function Home({ favoritos, toggleFavorito }) {
       <section className="home__seccion">
         <CarruselPeliculas
           titulo="🚀 Recordemos la Historia"
-          apiURL="https://www.omdbapi.com/?s=History&apikey=314fe0e"
+          terminoBusqueda="History"
           favoritos={favoritos}
           onToggleFavorito={toggleFavorito}
 

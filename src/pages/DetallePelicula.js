@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import './DetallePelicula.css';
-const apiKey = process.env.REACT_APP_OMDB_KEY;
+import '../styles/DetallePelicula.css';
+import { obtenerDetallePelicula } from '../services/apiPeliculas';
 
 function DetallePelicula() {
     // Obtenemos el ID de la película desde la URL
@@ -9,20 +9,13 @@ function DetallePelicula() {
   // Estado para almacenar los datos de la película seleccionada
   const [pelicula, setPelicula] = useState(null);
 
-  // Cuando se monta el componente, hacemos la petición a la API con el ID
   useEffect(() => {
-    const obtenerDetalle = async () => {
-      try {
-        const resp = await fetch(`https://www.omdbapi.com/?i=${id}&apikey=3${apiKey}`);
-        const data = await resp.json();
-        setPelicula(data);
-      } catch (error) {
-        console.error('Error al cargar detalles:', error);
-      }
-    };
-
-    obtenerDetalle();
-  }, [id]);
+  const fetchData = async () => {
+    const data = await obtenerDetallePelicula(id);
+    setPelicula(data);
+  };
+  fetchData();
+}, [id]);
 
   // Mientras se carga la data, mostramos un mensaje
   if (!pelicula) return <p>Cargando detalles...</p>;
