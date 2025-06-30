@@ -7,7 +7,7 @@ const API_KEY = process.env.REACT_APP_OMDB_KEY;
  * Busca películas por título
  * @param {string} titulo - Término de búsqueda
  */
-export const buscarPeliculas = async (titulo) => {
+export const buscarPeliculas = async (titulo, page = 1) => {
   try {
     const res = await fetch(`${API_BASE_URL}?s=${titulo}&apikey=${API_KEY}`);
     const data = await res.json();

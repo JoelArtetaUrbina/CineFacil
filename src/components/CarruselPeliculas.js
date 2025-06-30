@@ -1,83 +1,79 @@
 import { useState, useEffect, useRef } from 'react';
-import '../styles/CarruselPeliculas.css';
-import { useNavigate } from 'react-router-dom';
 import { buscarPeliculas } from '../services/apiPeliculas';
+import { useNavigate } from 'react-router-dom';
+import '../styles/CarruselPeliculas.css';
 
 function CarruselPeliculas({ titulo, terminoBusqueda, favoritos, onToggleFavorito }) {
   const [peliculas, setPeliculas] = useState([]);
   const contenedorRef = useRef(null);
+  const scrollX = useRef(0);
+  const isHovering = useRef(false);
   const navigate = useNavigate();
 
-  useEffect(() => {
-    const obtenerPeliculas = async () => {
-      try {
-        const data = await buscarPeliculas(terminoBusqueda);
-        setPeliculas(data);
-      } catch (err) {
-        console.error("Error al obtener películas:", err);
-        setPeliculas([]);
-      }
-    };
+useEffect(() => {
+  const obtenerPeliculas = async () => {
+    try {
+      const pagina1 = await buscarPeliculas(terminoBusqueda, 1);
+      const pagina2 = await buscarPeliculas(terminoBusqueda, 2);// opcional
+      const todas = [...pagina1, ...pagina2].filter(p => p.Poster && p.Poster !== 'N/A');
+      setPeliculas(todas);
+    } catch (error) {
+      console.error("Error al obtener películas:", error);
+      setPeliculas([]);
+    }
+  };
 
-    obtenerPeliculas();
-  }, [terminoBusqueda]);
+  obtenerPeliculas();
+}, [terminoBusqueda]);
+
 
   useEffect(() => {
     const contenedor = contenedorRef.current;
-    let scrollX = 0;
+    if (!contenedor) return;
 
-    const interval = setInterval(() => {
-      if (contenedor) {
-        const scrollMax = contenedor.scrollWidth - contenedor.clientWidth;
-        if (contenedor.scrollLeft >= scrollMax - 1) {
-          contenedor.scrollTo({ left: 0, behavior: "smooth" });
+    const moverScroll = () => {
+      const maxScroll = contenedor.scrollWidth - contenedor.clientWidth;
+      if (!isHovering.current) {
+        if (scrollX.current >= maxScroll) {
+          scrollX.current = 0;
         } else {
-          scrollX += 1.5;
-          contenedor.scrollTo({ left: scrollX, behavior: "smooth" });
+          scrollX.current += 1.5;
         }
+        contenedor.scrollTo({ left: scrollX.current, behavior: 'auto' });
       }
-    }, 30);
+    };
 
+    const interval = setInterval(moverScroll, 30);
     return () => clearInterval(interval);
   }, []);
 
-  const peliculasConPoster = peliculas.filter(
-    (peli) => peli.Poster && peli.Poster !== 'N/A'
-  );
-
   return (
-    <div className="carrusel">
-      <h3 className="carrusel__titulo">{titulo}</h3>
-      <div className="carrusel__contenedor" ref={contenedorRef}>
-        {peliculasConPoster.length > 0 ? (
-          peliculasConPoster.map((peli) => (
-            <div
-              className="carrusel__item"
-              key={peli.imdbID}
-              onClick={() => navigate(`/peliculas/${peli.imdbID}`)}
-              style={{ cursor: "pointer" }}
-            >
-              <img
-                src={peli.Poster}
-                alt={peli.Title}
-                className="carrusel__poster"
-              />
-              <button
-                className="carrusel__favorito"
-                onClick={(e) => {
-                  e.stopPropagation();
-                  onToggleFavorito(peli);
-                }}
-              >
-                {favoritos.some(fav => fav.imdbID === peli.imdbID) ? '★' : '☆'}
-              </button>
-            </div>
-          ))
-        ) : (
-          <p className="carrusel__mensaje">No se encontraron películas</p>
-        )}
+    <div className="carrusel__contenedor">
+  <div className="carrusel__lista">
+    {[...peliculas, ...peliculas].map((peli, index) => (
+      <div
+        className="carrusel__item"
+        key={`${peli.imdbID}-${index}`}
+        onClick={() => navigate(`/peliculas/${peli.imdbID}`)}
+      >
+        <img
+          className="carrusel__poster"
+          src={peli.Poster}
+          alt={peli.Title}
+        />
+        <button
+          className="carrusel__favorito"
+          onClick={(e) => {
+            e.stopPropagation();
+            onToggleFavorito(peli);
+          }}
+        >
+          {favoritos.some(fav => fav.imdbID === peli.imdbID) ? '★' : '☆'}
+        </button>
       </div>
-    </div>
+    ))}
+  </div>
+</div>
   );
 }
 

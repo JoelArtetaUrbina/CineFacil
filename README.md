@@ -1,6 +1,6 @@
 # 🎬 CineFacilito
 
-**CineFacilito** es una aplicación web construida con React que te permite descubrir películas por categorías, visualizarlas en carruseles animados y agregarlas a tus favoritas. Diseñada para cinéfilos modernos 🍿✨
+**CineFacilito** es una aplicación web construida con React que te permite descubrir películas por categorías, visualizarlas en carruseles animados y agregarlas a tus favoritas.
 
 ---
 
@@ -63,14 +63,9 @@ src/
 
 
 👤 Autor
-Creado con 💛 por Joel Arteta Urbina
+Creado por Joel Arteta Urbina
 📫 artetaurbina@gmail.com
 
 📄 Licencia
 MIT
 
-
-
-
-
-```
