@@ -37,7 +37,7 @@ function Home({ favoritos, toggleFavorito }) {
       <section className="home__seccion">
         <CarruselPeliculas
           titulo="📼 Clásicos que debes ver"
-          terminoBusqueda="oldies"
+          terminoBusqueda="old"
           favoritos={favoritos}
           onToggleFavorito={toggleFavorito}
 
