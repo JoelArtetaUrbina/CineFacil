@@ -10,21 +10,21 @@ function CarruselPeliculas({ titulo, terminoBusqueda, favoritos, onToggleFavorit
   const isHovering = useRef(false);
   const navigate = useNavigate();
 
-useEffect(() => {
-  const obtenerPeliculas = async () => {
-    try {
-      const pagina1 = await buscarPeliculas(terminoBusqueda, 1);
-      const pagina2 = await buscarPeliculas(terminoBusqueda, 2);// opcional
-      const todas = [...pagina1, ...pagina2].filter(p => p.Poster && p.Poster !== 'N/A');
-      setPeliculas(todas);
-    } catch (error) {
-      console.error("Error al obtener películas:", error);
-      setPeliculas([]);
-    }
-  };
+  useEffect(() => {
+    const obtenerPeliculas = async () => {
+      try {
+        const pagina1 = await buscarPeliculas(terminoBusqueda, 1);
+        const pagina2 = await buscarPeliculas(terminoBusqueda, 2);// opcional
+        const todas = [...pagina1, ...pagina2].filter(p => p.Poster && p.Poster !== 'N/A');
+        setPeliculas(todas);
+      } catch (error) {
+        console.error("Error al obtener películas:", error);
+        setPeliculas([]);
+      }
+    };
 
-  obtenerPeliculas();
-}, [terminoBusqueda]);
+    obtenerPeliculas();
+  }, [terminoBusqueda]);
 
 
   useEffect(() => {
@@ -49,31 +49,31 @@ useEffect(() => {
 
   return (
     <div className="carrusel__contenedor">
-  <div className="carrusel__lista">
-    {[...peliculas, ...peliculas].map((peli, index) => (
-      <div
-        className="carrusel__item"
-        key={`${peli.imdbID}-${index}`}
-        onClick={() => navigate(`/peliculas/${peli.imdbID}`)}
-      >
-        <img
-          className="carrusel__poster"
-          src={peli.Poster}
-          alt={peli.Title}
-        />
-        <button
-          className="carrusel__favorito"
-          onClick={(e) => {
-            e.stopPropagation();
-            onToggleFavorito(peli);
-          }}
-        >
-          {favoritos.some(fav => fav.imdbID === peli.imdbID) ? '★' : '☆'}
-        </button>
+      <div className="carrusel__lista">
+        {[...peliculas, ...peliculas].map((peli, index) => (
+          <div
+            className="carrusel__item"
+            key={`${peli.imdbID}-${index}`}
+            onClick={() => navigate(`/peliculas/${peli.imdbID}`)}
+          >
+            <img
+              className="carrusel__poster"
+              src={peli.Poster}
+              alt={peli.Title}
+            />
+            <button
+              className="carrusel__favorito"
+              onClick={(e) => {
+                e.stopPropagation();
+                onToggleFavorito(peli);
+              }}
+            >
+              {favoritos.some(fav => fav.imdbID === peli.imdbID) ? '★' : '☆'}
+            </button>
+          </div>
+        ))}
       </div>
-    ))}
-  </div>
-</div>
+    </div>
   );
 }
 

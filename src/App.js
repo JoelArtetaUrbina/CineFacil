@@ -6,7 +6,7 @@ import DetallePelicula from './pages/DetallePelicula';
 import NotFound from './pages/NotFound';
 import Favoritos from './pages/Favoritos';
 import { useState } from 'react';
-import './App.css'; // Asegúrate de tener los estilos del layout aquí
+import '../src/styles/App.css'; // Asegúrate de tener los estilos del layout aquí
 
 function App() {
   const [favoritos, setFavoritos] = useState([]);

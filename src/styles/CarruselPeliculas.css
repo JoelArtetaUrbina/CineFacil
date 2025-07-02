@@ -15,15 +15,17 @@
   display: flex;
   overflow-x: hidden; /* Oculta scroll nativo */
   position: relative;
-  width: 100%;
-  padding: 1rem 0;
+  padding: 0;
+  width: 100%; /* Ancho máximo del carrusel */
+  margin: 0; /* Centra el carrusel */
+  padding: 1rem 0; /* Espacio alrededor del carrusel */
 }
 
 .carrusel__lista {
   display: flex;
   flex-wrap: nowrap;
   gap: 1rem;
-  animation: carrusel-loop 60s linear infinite;
+  animation: carrusel-loop 15s linear infinite;
 }
 
 @keyframes carrusel-loop {
@@ -93,9 +95,9 @@
   top: 8px;
   right: 8px;
   background: rgba(0, 0, 0, 0.6);
-  color: #f8d500;
-  font-size: 1.2rem;
-  border: 1px solid #f8d500;
+  color: #d0ff00;
+  font-size: 1.8rem;
+  border: 1px solid #f84600;
   border-radius: 50%;
   width: 32px;
   height: 32px;
