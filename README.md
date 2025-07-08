@@ -6,7 +6,7 @@
 
 ## 🚀 Demo en vivo
 
-🔗 [Ver proyecto en Vercel](https://cinefacilito.vercel.app)
+🔗 [Ver proyecto en Vercel](https://cine-facil.vercel.app)
 
 ---
 
