@@ -5,6 +5,8 @@ function usePeliculas(){
     const [peliculas, setPeliculas] = useState([]);
     const [cargando, setCargando] = useState(false);
     const [error, setError] = useState(null);
+    const API_BASE_URL = 'https://www.omdbapi.com/';
+const API_KEY = process.env.REACT_APP_OMDB_KEY;
 
     //función que realiza la consulta a la api
     const buscarPeliculas = async (titulo, modo) => {
@@ -13,8 +15,8 @@ function usePeliculas(){
 
   const url =
     modo === 'exacta'
-      ? `https://www.omdbapi.com/?t=${titulo}&apikey=314fe0e`
-      : `https://www.omdbapi.com/?s=${titulo}&apikey=314fe0e`;
+      ? `${API_BASE_URL}?t=${titulo}&apikey=${API_KEY}`
+      : `${API_BASE_URL}?s=${titulo}&apikey=${API_KEY}`;
 
   try {
     const respuesta = await fetch(url);
