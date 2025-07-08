@@ -12,12 +12,15 @@
 
 ## 📸 Capturas de pantalla
 
-<p align="center">
+<p align="center"><br>
 <p>Pagina principal</p>
-  <img src="./docs/Home.png" width="600" alt="Vista de Inicio" />
-  <img src="./docs/Detalle_Pelicula.png" width="600" alt="Detalle de Película" />
-  <img src="./docs/Buscar Pelicula.png" width="600" alt="Buscar Película" />
-  <img src="./docs/Favoritos.png" width="600" alt="Sección de Favoritos" />
+  <img src="./docs/Home.png" width="600" alt="Vista de Inicio" /><br>
+  <p>Vista detalle de pelicula</p>
+  <img src="./docs/Detalle_Pelicula.png" width="600" alt="Detalle de Película" /><br>
+  <p>Vista Buscar Pelicula</p>
+  <img src="./docs/Buscar Pelicula.png" width="600" alt="Buscar Película" /><br>
+  <p>Vista Sección de Favoritos</p>
+  <img src="./docs/Favoritos.png" width="600" alt="Sección de Favoritos" /><br>
 </p>
 
 ---
