@@ -13,7 +13,7 @@
 ## 📸 Capturas de pantalla
 
 <p align="center">
-<p align="center">Pagina principal</p>
+<p>Pagina principal</p>
   <img src="./docs/Home.png" width="600" alt="Vista de Inicio" />
   <img src="./docs/Detalle_Pelicula.png" width="600" alt="Detalle de Película" />
   <img src="./docs/Buscar Pelicula.png" width="600" alt="Buscar Película" />
