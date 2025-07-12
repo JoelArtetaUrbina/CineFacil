@@ -3,19 +3,19 @@ import { useParams } from 'react-router-dom';
 import '../styles/DetallePelicula.css';
 import { obtenerDetallePelicula } from '../services/apiPeliculas';
 
-function DetallePelicula() {
-    // Obtenemos el ID de la película desde la URL
+function DetallePelicula({ onToggleFavorito, favoritos }) {
+  // Obtenemos el ID de la película desde la URL
   const { id } = useParams();
   // Estado para almacenar los datos de la película seleccionada
   const [pelicula, setPelicula] = useState(null);
 
   useEffect(() => {
-  const fetchData = async () => {
-    const data = await obtenerDetallePelicula(id);
-    setPelicula(data);
-  };
-  fetchData();
-}, [id]);
+    const fetchData = async () => {
+      const data = await obtenerDetallePelicula(id);
+      setPelicula(data);
+    };
+    fetchData();
+  }, [id]);
 
   // Mientras se carga la data, mostramos un mensaje
   if (!pelicula) return <p>Cargando detalles...</p>;
@@ -23,6 +23,13 @@ function DetallePelicula() {
   // Cuando ya tenemos la data, mostramos los detalles de la película
   return (
     <div className="detalle-pelicula container">
+      <button
+        className="detalle__favorito"
+        onClick={() => onToggleFavorito(pelicula)}
+      >
+        {favoritos.some(f => f.imdbID === pelicula.imdbID) ? '★' : '☆'}
+      </button>
+
       <h2>{pelicula.Title}</h2>
       <img src={pelicula.Poster} alt={pelicula.Title} />
       <p><strong>Año:</strong> {pelicula.Year}</p>
