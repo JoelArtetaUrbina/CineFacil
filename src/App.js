@@ -6,7 +6,7 @@ import DetallePelicula from './pages/DetallePelicula';
 import NotFound from './pages/NotFound';
 import Favoritos from './pages/Favoritos';
 import { useState } from 'react';
-import '../src/styles/App.css'; // Asegúrate de tener los estilos del layout aquí
+import '../src/styles/App.css';
 
 function App() {
   const [favoritos, setFavoritos] = useState([]);
@@ -51,7 +51,16 @@ function App() {
                   />
                 }
               />
-              <Route path="/peliculas/:id" element={<DetallePelicula />} />
+              <Route
+                path="/peliculas/:id"
+                element={
+                  <DetallePelicula
+                    favoritos={favoritos}
+                    onToggleFavorito={toggleFavorito}
+                  />
+                }
+              />
+
               <Route path="*" element={<NotFound />} />
             </Routes>
           </main>

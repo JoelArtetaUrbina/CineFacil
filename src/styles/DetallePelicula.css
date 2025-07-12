@@ -1,21 +1,24 @@
 /* 🎬 Contenedor principal del detalle de la película */
 .detalle-pelicula {
-  display: flex;                         /* Apila el contenido en columna */
+  display: flex; /* Apila el contenido en columna */
   flex-direction: column;
-  align-items: center;                  /* Centra los elementos horizontalmente */
+  align-items: center; /* Centra los elementos horizontalmente */
   text-align: center;
   background: linear-gradient(
-  to bottom right,
-  rgba(30, 30, 30, 0.85), rgba(10, 10, 10, 0.65)
-);
-  backdrop-filter: blur(4px);           /* Difumina el fondo detrás (efecto vidrio esmerilado) */
-  padding: 2rem;                        /* Espaciado interno */
-  border-radius: 12px;                 /* Bordes redondeados */
+    to bottom right,
+    rgba(30, 30, 30, 0.85),
+    rgba(10, 10, 10, 0.65)
+  );
+  backdrop-filter: blur(
+    4px
+  ); /* Difumina el fondo detrás (efecto vidrio esmerilado) */
+  padding: 2rem; /* Espaciado interno */
+  border-radius: 12px; /* Bordes redondeados */
   box-shadow: 0 0 25px rgba(0, 0, 0, 0.3); /* Sombra alrededor del contenedor */
   max-width: 800px;
-  margin: 2rem auto;                   /* Centra verticalmente con márgenes */
+  margin: 2rem auto; /* Centra verticalmente con márgenes */
   animation: fadeIn 0.8s ease forwards; /* Animación de aparición suave */
-  opacity: 0;                          /* Inicialmente invisible para que aparezca animado */
+  opacity: 0; /* Inicialmente invisible para que aparezca animado */
 }
 
 /* ✨ Animación de entrada al cargar el componente */
@@ -29,7 +32,7 @@
 /* 🎞️ Título de la película */
 .detalle-pelicula h2 {
   font-size: 2.5rem;
-  color: #f8d500;                       /* Amarillo brillante estilo cartelera */
+  color: #f8d500; /* Amarillo brillante estilo cartelera */
   margin-bottom: 1rem;
 }
 
@@ -39,12 +42,12 @@
   border-radius: 8px;
   margin-bottom: 1.5rem;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6); /* Sombra fuerte para destacar el póster */
-  transition: transform 0.3s ease;          /* Transición para el efecto de hover */
+  transition: transform 0.3s ease; /* Transición para el efecto de hover */
 }
 
 /* 🔍 Efecto al pasar el mouse sobre el póster */
 .detalle-pelicula img:hover {
-  transform: scale(1.05);                   /* Aumenta ligeramente la escala */
+  transform: scale(1.05); /* Aumenta ligeramente la escala */
 }
 
 /* 🎬 Texto de descripción general */
@@ -57,4 +60,21 @@
 /* ⭐ Destaca las etiquetas (como Año, Género, etc.) */
 .detalle-pelicula p strong {
   color: #f8d500;
+}
+
+.detalle__favorito {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 2rem;
+  color: gold;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s;
+  z-index: 10;
+}
+
+.detalle__favorito:hover {
+  transform: scale(1.2);
 }
