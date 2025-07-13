@@ -53,17 +53,12 @@ npm start
 
 📁 Estructura del proyecto
 src/
-├── assets/
 ├── components/
-├── context/
-├── data/
 ├── hooks/
 ├── pages/
 ├── services/
 ├── styles/
-├── utils/
 └── App.js / index.js
-
 
 
 👤 Autor
